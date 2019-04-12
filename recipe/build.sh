@@ -99,6 +99,7 @@ cmake -LAH \
     ../root-source
 
 make -j${CPU_COUNT}
+ctest -T test --no-compress-output # run gtests
 make install
 
 # Create symlinks so conda can find the Python bindings
