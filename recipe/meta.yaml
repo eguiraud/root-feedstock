@@ -267,6 +267,8 @@ outputs:
         - {{ pin_subpackage('pyroot', exact=True) }}
 {% endif %}
         - python
+        # Workaround: https://github.com/conda/conda-build/issues/3308
+        - openssl
       run:
         - {{ pin_subpackage('root_base', exact=True) }}
 {% if not builtin_pyroot %}
@@ -301,6 +303,8 @@ outputs:
       host:
         - {{ pin_subpackage('root', exact=True) }}
         - python
+        # https://github.com/conda/conda-build/issues/3308
+        - openssl
       run:
         - {{ pin_subpackage('root', exact=True) }}
         - python
